@@ -1,16 +1,22 @@
 package org.oos.travel;
 
-import org.skife.jdbi.v2.sqlobject.Bind;
-import org.skife.jdbi.v2.sqlobject.SqlQuery;
-import org.skife.jdbi.v2.sqlobject.SqlUpdate;
+import org.skife.jdbi.v2.sqlobject.*;
+import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 
+import java.sql.ResultSet;
+import java.util.List;
+
+@RegisterMapper(VisaMapper.class)
 public interface VisaDAO {
-    @SqlUpdate("create table something (id int primary key, name varchar(100))")
-    void createSomethingTable();
+    @SqlUpdate("create table visa (id int primary key, name varchar(100))")
+    void createVisaTable();
 
-    @SqlUpdate("insert into something (id, name) values (:id, :name)")
-    void insert(@Bind("id") int id, @Bind("name") String name);
+    @SqlUpdate("insert into visa (id, name) values (:id, :name)")
+    void insert(@Bind("id") long id, @Bind("name") String name);
 
-    @SqlQuery("select name from something where id = :id")
+    @SqlQuery("select name from visa where id = :id")
     String findNameById(@Bind("id") int id);
+
+    @SqlQuery("select * from visa")
+    List<Visa> findAll();
 }

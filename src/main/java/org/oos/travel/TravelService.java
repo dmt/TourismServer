@@ -17,7 +17,7 @@ public class TravelService extends Service<TravelConfiguration> {
     @java.lang.Override
     public void run(TravelConfiguration travelConfiguration, Environment environment) throws Exception {
         final DBIFactory factory = new DBIFactory();
-        final DBI jdbi = factory.build(environment, travelConfiguration.getDatabaseConfiguration(), "hsql");
+        final DBI jdbi = factory.build(environment, travelConfiguration.getDatabaseConfiguration(), "example");
         final VisaDAO dao = jdbi.onDemand(VisaDAO.class);
         environment.addResource(new TravelResource(dao));
         environment.addResource(TravelResource.class);

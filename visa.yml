@@ -11,3 +11,5 @@ database:
 
   # the JDBC URL
   url: jdbc:hsqldb:target/example
+
+  validationQuery: SELECT * FROM INFORMATION_SCHEMA.SYSTEM_TABLES

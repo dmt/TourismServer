@@ -11,4 +11,16 @@ public class Visa {
         this.companyName = companyName;
         this.address = address;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
 }
