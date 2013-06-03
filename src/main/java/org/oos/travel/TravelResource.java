@@ -29,15 +29,21 @@ public class TravelResource {
         return dao.findAll();
     }
 
-//    @Path("bla")
+    @POST
+    public Visa addVisa(Visa visa) {
+        dao.insert(visa.getId(), visa.getCompanyName());
+        return visa;
+    }
+
+    @Path("bla")
+    @GET
     public Visa createOne() {
-        dao.insert(1, "bla");
-        dao.insert(1, "bla");
-        dao.insert(1, "bla");
-        dao.insert(1, "bla");
-        dao.insert(1, "bla");
-        dao.insert(1, "bla");
-        dao.insert(1, "bla");
+        dao.insert(2, "bla2");
+        dao.insert(3, "bla3");
+        dao.insert(4, "bla4");
+        dao.insert(5, "bla5");
+        dao.insert(6, "bla6");
+        dao.insert(7, "bla7");
         return new Visa(1, "bla", "");
     }
 
