@@ -19,6 +19,7 @@ public class TravelService extends Service<TravelConfiguration> {
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, travelConfiguration.getDatabaseConfiguration(), "example");
         final VisaDAO dao = jdbi.onDemand(VisaDAO.class);
+        dao.createVisaTable();
         environment.addResource(new TravelResource(dao));
         environment.addResource(TravelResource.class);
     }

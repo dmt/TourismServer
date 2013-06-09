@@ -8,7 +8,7 @@ import java.util.List;
 
 @RegisterMapper(VisaMapper.class)
 public interface VisaDAO {
-    @SqlUpdate("create table visa (id int primary key, name varchar(100))")
+    @SqlUpdate("create table if not exists visa (id int primary key, name varchar(100))")
     void createVisaTable();
 
     @SqlUpdate("insert into visa (id, name) values (:id, :name)")
