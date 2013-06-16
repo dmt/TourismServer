@@ -17,6 +17,9 @@ public interface VisaDAO {
     @SqlQuery("select name from visa where id = :id")
     String findNameById(@Bind("id") int id);
 
+    @SqlQuery("select * from visa where id = :id")
+    Visa findById(@Bind("id") long id);
+
     @SqlQuery("select * from visa")
     List<Visa> findAll();
 }
