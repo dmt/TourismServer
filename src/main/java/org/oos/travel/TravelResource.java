@@ -45,20 +45,9 @@ public class TravelResource {
     @POST
     @Timed
     public Response addVisa(Visa visa) {
-        dao.insert(visa.getId(), visa.getCompanyName());
-        return Response.created(UriBuilder.fromResource(TravelResource.class).build(visa.getId())).build();
-    }
-
-    @Path("bla")
-    @GET
-    public Visa createSome() {
-        dao.insert(2, "bla2");
-        dao.insert(3, "bla3");
-        dao.insert(4, "bla4");
-        dao.insert(5, "bla5");
-        dao.insert(6, "bla6");
-        dao.insert(7, "bla7");
-        return new Visa(1, "bla", "");
+        dao.insert(visa.getCompanyName(), visa.getAddress());
+        long id = dao.insertedId();
+        return Response.created(UriBuilder.fromPath("{id}").build(id)).build();
     }
 
 }
